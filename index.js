@@ -1,14 +1,14 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
-
+const generateMarkdown = require("./util/generateMarkdown.js");
 const writeFileAsync = util.promisify(fs.writeFile);
 
 // array of questions for user
 // const questions = [
 // ];
 
-
+// Prompt Questions to user to generate ReadMe file
 function promptUser() {
     return inquirer.prompt([
       {
@@ -34,7 +34,7 @@ function promptUser() {
       {
         type: "input",
         name: "contribution",
-        message: "Mention your Contributors:"
+        message: "Provide Contribution Guidelines:"
       },
       {
         type: "input",
@@ -43,14 +43,26 @@ function promptUser() {
       },
       {
         type: "list",
-        name: "Choose a License:",
+        name: "license",
+        message: "Choose a License:",
         choices: [
             "MIT License",
             "GNU GPLv3",
             "Mozilla Public License 2.0",
             "The Unlicense"
-        ]
-      }
+        ],
+        default: "MIT License"
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'Provide your email address'
+      },
+    {
+        type: 'input',
+        name: 'github',
+        message: 'Provide your GitHub username.'
+    }
     ]);
   }
 
@@ -59,6 +71,21 @@ promptUser();
 // function to write README file
 function writeToFile(fileName, data) {
 }
+
+
+
+//   promptUser()
+//   .then(function(answers) {
+//     const html = generateHTML(answers);
+
+//     return writeFileAsync("index.html", html);
+//   })
+//   .then(function() {
+//     console.log("Successfully wrote to index.html");
+//   })
+//   .catch(function(err) {
+//     console.log(err);
+//   });
 
 // function to initialize program
 function init() {
