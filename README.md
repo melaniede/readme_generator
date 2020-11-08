@@ -7,7 +7,7 @@ Use this Node CLI app to quickly generate a project README. This quality README 
 <img src="/assets/images/readme_questions.png" width="320"/>
 
 ## README Result
-<img src="/assets/images/readme_demo.png" width="320/>
+<img src="/assets/images/readme_demo.png" width="320"/>
 
 ### User Story
 ```
