@@ -65,9 +65,6 @@ let promptUser = () => {
 }
 
 // function to write README file
-// function writeToFile(fileName, data) {
-// }
-
 async function init() {
   try {
       const answers = await promptUser();
