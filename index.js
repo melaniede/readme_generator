@@ -1,16 +1,11 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
-const generateMarkdown = require("./util/generateMarkdown.js");
+const generateMarkdown = require("./utils/generateMarkdown.js");
 const writeFileAsync = util.promisify(fs.writeFile);
 
 // array of questions for user
-// const questions = [
-// ];
-
-// Prompt Questions to user to generate ReadMe file
-function promptUser() {
-    return inquirer.prompt([
+const questions = [
       {
         type: "input",
         name: "title",
@@ -61,36 +56,34 @@ function promptUser() {
     {
         type: 'input',
         name: 'github',
-        message: 'Provide your GitHub username.'
+        message: 'Provide your GitHub username'
     }
-    ]);
-  }
+];
 
-promptUser();
+let promptUser = () => {
+  return inquirer.prompt(questions);
+}
 
 // function to write README file
-function writeToFile(fileName, data) {
-}
+// function writeToFile(fileName, data) {
+// }
 
-
-
-//   promptUser()
-//   .then(function(answers) {
-//     const html = generateHTML(answers);
-
-//     return writeFileAsync("index.html", html);
-//   })
-//   .then(function() {
-//     console.log("Successfully wrote to index.html");
-//   })
-//   .catch(function(err) {
-//     console.log(err);
-//   });
-
-// function to initialize program
-function init() {
-
-}
+async function init() {
+  try {
+      const answers = await promptUser();
+      console.log(answers);
+      
+      const readme = generateMarkdown(answers);
+  
+      writeFileAsync("README-DEMO.md", readme).then(function() {
+          console.log("Successfuly created README!");
+      });
+  }
+  catch (err) {
+      console.log(err);
+  }
+  
+  }
 
 // function call to initialize program
 init();
