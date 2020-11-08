@@ -4,10 +4,10 @@
 Use this Node CLI app to quickly generate a project README. This quality README generator allows you to focus more time on building your application, and saves you time when creating the README file.
 
 ## README Prompt Questions
-<img src="/assets/images/prompt_questions.png" width="300" height="300"/>
+<img src="/assets/images/readme_questions.png" width="300" height="300"/>
 
 ## README Result
-<img src="/assets/images/jest_results.png">
+<img src="/assets/images/readme_demo.png">
 All 17 unit test cases passed! 
 
 ### User Story
